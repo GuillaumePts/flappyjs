@@ -112,25 +112,25 @@ function gopartie() {
         
 
 
-        if (positionpiege > 20 && positionpiege <800) {
-            let mouv=document.querySelectorAll('.mouv')
+        // if (positionpiege > 20 && positionpiege <800) {
+        //     let mouv=document.querySelectorAll('.mouv')
 
-            let div =[ mouv[0].offsetHeight , mouv[1].offsetHeight]
+        //     let div =[ mouv[0].offsetHeight , mouv[1].offsetHeight]
 
-                //   si bird touche le piege         
+        //         //   si bird touche le piege         
                 
-            //  si bird touche le piege         
-                //  if (positionpiege < 400 && positionpiege > 450 &&   x <div[1]) {
-                //     //  window.location.reload(true)
-                //     console.log('true');
-                //  }
+        //     //  si bird touche le piege         
+        //         //  if (positionpiege < 400 && positionpiege > 450 &&   x <div[1]) {
+        //         //     //  window.location.reload(true)
+        //         //     console.log('true');
+        //         //  }
 
-                 if (positionpiege < 400 && positionpiege > 450 &&  x > div[0] || x <div[1]) {
-                     window.location.reload(true)
-                    // console.log('true');
-                 }
+        //          if (positionpiege < 400 && positionpiege > 450 &&  x > div[0] || x <div[1]) {
+        //              window.location.reload(true)
+        //             // console.log('true');
+        //          }
 
-        }
+        // }
 
 
     }, 20);
