@@ -175,9 +175,9 @@ function gopartie() {
 // console.log(birdTop);
 // console.log(div1G);
 
-        if (birdG + 50 >= div1G &&
+        if (birdG + 25 >= div1G &&
             birdG <= div1G + div1H &&
-            birdTop + 50 >= div1T &&
+            birdTop + 25 >= div1T &&
             birdTop <= div1T + div1H
         ){
             window.location.reload(true)
