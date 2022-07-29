@@ -37,7 +37,7 @@ body{
 #bird{
     height: 50px;
     width: 50px;
-    border-radius: 50%;
+    
     background-color: rgb(188, 188, 55);
     border: 2px solid black;
     position: absolute;
@@ -48,7 +48,7 @@ body{
 
 .mouv{
 
-height: 40px;
+
     right: var(--right-);
     
 }

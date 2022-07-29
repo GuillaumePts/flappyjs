@@ -5,174 +5,43 @@ const bird = document.querySelector('#bird')
 const root = document.documentElement
 
 
-
-window.addEventListener("keydown", function (event) {
-
-
-
-
-    if (event.key == "z") {
-        console.log('ça part');
-        gopartie()
-
-    }
-
-})
-
-function gopartie() {
-
-    // ------------------------------------------------------
-    /*PARTIE BIRD */
-    // ------------------------------------------------------
-    let x = 350
-    let valeur = -7
-    let vrai = 0
+// -----------------------------------------------------------------------------------
+// -----------MES FONCTIONS ---------------------------------------------------------
+//----------------------------------------------------------------------------------
 
 
-
-    setInterval(() => {
-
-        x += valeur
-
-        root.style.setProperty('--position-', x + 'px')
-        if (x < 0 || x > 500) {
-            window.location.reload(true)
-        }
-
-        return x
-    }, 20);
-
-
-    window.addEventListener("keydown", function (event) {
-
-
-
-        if (event.key == " ") {
-
-            valeur = 17
-
-        }
-
-    })
-    window.addEventListener("keyup", function (event) {
-
-
-
-        if (event.key == " ") {
-
-            valeur = -7
-
-
-        }
-
-    })
-
-    // ------------------------------------------------------
-    /**FIN PARTIE BIRD */
-    // ------------------------------------------------------
-
-
-    // ------------------------------------------------------
-    /**PARTIE OBSTACLE */
-    // ------------------------------------------------------
-    let positionpiege = 0
-
-    setInterval(() => {
-
-        
-        positionpiege += 15
-
-        root.style.setProperty('--right-', positionpiege + 'px')
-        // console.log(vrai);
-        // console.log(positionpiege);
-
-
-
-
-        // si bird touche le piege         
-        // if (positionpiege > 350 && positionpiege < 450 && x > divH || x <divB) {
-        //     window.location.reload(true)
-        // }
-
-        // creation du nouveau piege aleatoir
-        if (positionpiege === 900) {
-
-            let taille = random(80, 210)
-            let taille2 = random(80, 210)
-
-            while (fond.firstChild) {
-                fond.removeChild(fond.firstChild)
-            }
-            newpiege(taille, taille2)
-            positionpiege = 0
-         }
-
-        
-
-        
-
-
-        // if (positionpiege > 20 && positionpiege <800) {
-        //     let mouv=document.querySelectorAll('.mouv')
-
-        //     let div =[ mouv[0].offsetHeight , mouv[1].offsetHeight]
-
-        //         //   si bird touche le piege         
-                
-        //     //  si bird touche le piege         
-        //         //  if (positionpiege < 400 && positionpiege > 450 &&   x <div[1]) {
-        //         //     //  window.location.reload(true)
-        //         //     console.log('true');
-        //         //  }
-
-        //          if (positionpiege < 400 && positionpiege > 450 &&  x > div[0] || x <div[1]) {
-        //              window.location.reload(true)
-        //             // console.log('true');
-        //          }
-
-        // }
-
-
-    }, 20);
-
-
-
-}
-
-
+// me génère des tailles aléatoires
 function random(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+// me génère des couleurs aléatoire
 function colorRandom(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+// marche pas 
+function mouving() {
+    let mouv = document.querySelectorAll('.mouv')
+    let top = mouv[0].offsetLeft;
+    let left = mouv[0].offsetTop
+    return {
+        top,
+        left
 
-// function monheight(){
-//     if (positionpiege === 0) {
-//         console.log('1 :', taille);
-//         console.log('2 :', taille2);
-
-//         let height = [taille, taille2] }
-
-//         return height
-
-// }
-
-
+    }
+}
 
 
 
+
+// fonction qui créer les pieges
 function newpiege(taille, taille2) {
 
-
-    // let taille = random(80,210)
-    // let taille2 = random(80,210)
     let color = colorRandom(100, 999)
 
 
@@ -202,14 +71,110 @@ function newpiege(taille, taille2) {
     piegebas.style.backgroundColor = '#' + color
     piegebas.style.position = 'absolute'
     piegebas.style.bottom = 0
-
-
-
-
-
 }
 
 
+// Quand on appui sur z ça lance la fonction go partie qui elle lance le jeu
+window.addEventListener("keydown", function (event) {
+
+    if (event.key == "z") {
+        console.log('ça part');
+        gopartie()}
+
+})
 
 
-newpiege()
+
+// la fonction gopartie lance la partie
+function gopartie() {
+
+
+
+// A chaque clic de la touche espace ma valeur prend +17px donc le bird saute de 17px
+    window.addEventListener("keydown", function (event) {
+
+        if (event.key == " ") {
+
+            valeur = 17}
+        
+        })
+
+    // A chaque relachement de la touche espace ma valeur perds -7px donc le bird chut de 7px
+    window.addEventListener("keyup", function (event) {
+
+        if (event.key == " ") {
+
+            valeur = -7}
+
+        })
+
+    // ------------------------------------------------------
+    /*PARTIE BIRD */
+    // ------------------------------------------------------
+    
+    // x = position de départ du bird
+    let x = 350
+    // valeur = représente la chute du bird est donc la position x 
+    let valeur = -7
+    // la position de mon piege
+    let positionpiege = 0
+
+
+// toutes les 0.020s je fait ce qui y'a dedans 
+    setInterval(() => {
+
+
+        // ------------------------------------------------------
+        /**FIN PARTIE BIRD */
+        // ------------------------------------------------------
+
+        // x est la position bottom du bird
+        x += valeur
+        // ma variable css prend en valeur x 
+        root.style.setProperty('--position-', x + 'px')
+
+        // cette condition me sert à délimiter la hauteur limite des sauts du bird 
+        if (x < 0 || x > 500) {
+            window.location.reload(true)
+        }
+
+
+
+        // ------------------------------------------------------
+        /**PARTIE OBSTACLE */
+        // ------------------------------------------------------
+
+
+        // mon piege se déplace de 15px vers la gauche toutes les 0.020s
+        positionpiege += 15
+        // ma variable css prend la valeur de positionpiege 
+        root.style.setProperty('--right-', positionpiege + 'px')
+
+
+        // creation du nouveau piege aleatoir
+        if (positionpiege === 900) {
+            // les variables tailles renvoie une valeurs random qui sera les height de mes pieges 
+            let taille = random(80, 210) /**= height du piege du haut */
+            let taille2 = random(80, 210) /**=height du piege du bas  */
+
+            // ma boucle while supprime les pieges après chaque passage
+            while (fond.firstChild) {
+                fond.removeChild(fond.firstChild)
+            }
+            // ma fonction newpiege créer un couple de pieges avec comme parametre les valeurs aléatoires pour définir la hauteur
+            newpiege(taille, taille2)
+
+            // je remet positionpiege à 0 pour recommencer l'animation à droite
+            positionpiege = 0
+
+        }
+
+    }, 20);
+
+
+
+
+
+    newpiege()
+
+}
