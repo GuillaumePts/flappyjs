@@ -1,7 +1,7 @@
 const body = document.querySelector('body')
 const fond = document.querySelector('#fond')
 
-
+const player= document.querySelector('#bird')
 const root = document.documentElement
 
 
@@ -103,6 +103,10 @@ function gopartie() {
         if (event.key == " ") {
 
             valeur = 17
+           
+            
+            player.classList.remove('rm')
+            player.classList.add('rp')
         }
 
     })
@@ -113,6 +117,8 @@ function gopartie() {
         if (event.key == " ") {
 
             valeur = -7
+            player.classList.add('rm')
+            player.classList.remove('rp')
         }
 
     })
@@ -166,10 +172,10 @@ function gopartie() {
         let birdTop = bird.offsetTop
         let div1G = mouv[0].offsetLeft
         let div1T = mouv[0].offsetTop
-        let div1H=mouv[0].offsetHeight+25
+        let div1H=mouv[0].offsetHeight
         let div2G = mouv[1].offsetLeft
         let div2T = mouv[1].offsetTop
-        let div2H=mouv[1].offsetHeight+25
+        let div2H=mouv[1].offsetHeight
         
 // console.log(birdG);
 // console.log(birdTop);
@@ -194,8 +200,8 @@ function gopartie() {
             // creation du nouveau piege aleatoir
             if (positionpiege === 900) {
                 // les variables tailles renvoie une valeurs random qui sera les height de mes pieges 
-                let taille = random(80, 210) /**= height du piege du haut */
-                let taille2 = random(80, 210) /**=height du piege du bas  */
+                let taille = random(80, 200) /**= height du piege du haut */
+                let taille2 = random(80, 200) /**=height du piege du bas  */
 
                 // ma boucle while supprime les pieges après chaque passage
                 while (fond.firstChild) {

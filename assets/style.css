@@ -41,7 +41,7 @@ body{
     background-color: rgb(188, 188, 55);
     border: 2px solid black;
     position: absolute;
-    
+
     bottom:  var(--position-);
    
 }
@@ -51,6 +51,40 @@ body{
 
     right: var(--right-);
     
+}
+
+.rp{
+    animation: rplus 0.2s linear forwards;
+    background-color:brown;
+}
+
+@keyframes rplus{
+    0%{
+        transform: rotate(0);
+    }
+    50%{
+        transform: rotate(-10deg);
+    }
+    100%{
+        transform: rotate(-20deg);
+    }
+}
+
+.rm{
+    animation: rmoin 0.2s linear forwards;
+    background-color: navy;
+}
+
+@keyframes rmoin{
+    0%{
+        transform: rotate(0);
+    }
+    50%{
+        transform: rotate(10deg);
+    }
+    100%{
+        transform: rotate(20deg);
+    }
 }
 
 
