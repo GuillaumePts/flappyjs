@@ -10,8 +10,8 @@ body{
 }
 
 #content{
-    height: 600px;
-    width: 1400px;
+    height: 500px;
+    width: 900px;
     background-color: green;
     border: 5px solid black;
     display: flex;
@@ -37,7 +37,7 @@ body{
 #bird{
     height: 50px;
     width: 50px;
-    
+    transform: translate(-50%,-50%);
     background-color: rgb(188, 188, 55);
     border: 2px solid black;
     position: absolute;

@@ -1,7 +1,7 @@
 const body = document.querySelector('body')
 const fond = document.querySelector('#fond')
 
-const bird = document.querySelector('#bird')
+
 const root = document.documentElement
 
 
@@ -74,12 +74,19 @@ function newpiege(taille, taille2) {
 }
 
 
+
+
+
+
+
+
 // Quand on appui sur z ça lance la fonction go partie qui elle lance le jeu
 window.addEventListener("keydown", function (event) {
 
     if (event.key == "z") {
         console.log('ça part');
-        gopartie()}
+        gopartie()
+    }
 
 })
 
@@ -90,28 +97,30 @@ function gopartie() {
 
 
 
-// A chaque clic de la touche espace ma valeur prend +17px donc le bird saute de 17px
+    // A chaque clic de la touche espace ma valeur prend +17px donc le bird saute de 17px
     window.addEventListener("keydown", function (event) {
 
         if (event.key == " ") {
 
-            valeur = 17}
-        
-        })
+            valeur = 17
+        }
+
+    })
 
     // A chaque relachement de la touche espace ma valeur perds -7px donc le bird chut de 7px
     window.addEventListener("keyup", function (event) {
 
         if (event.key == " ") {
 
-            valeur = -7}
+            valeur = -7
+        }
 
-        })
+    })
 
     // ------------------------------------------------------
     /*PARTIE BIRD */
     // ------------------------------------------------------
-    
+
     // x = position de départ du bird
     let x = 350
     // valeur = représente la chute du bird est donc la position x 
@@ -120,7 +129,7 @@ function gopartie() {
     let positionpiege = 0
 
 
-// toutes les 0.020s je fait ce qui y'a dedans 
+    // toutes les 0.020s je fait ce qui y'a dedans 
     setInterval(() => {
 
 
@@ -150,24 +159,55 @@ function gopartie() {
         // ma variable css prend la valeur de positionpiege 
         root.style.setProperty('--right-', positionpiege + 'px')
 
+        let mouv = document.querySelectorAll('.mouv')
+        let bird = document.querySelector('#bird')
 
-        // creation du nouveau piege aleatoir
-        if (positionpiege === 900) {
-            // les variables tailles renvoie une valeurs random qui sera les height de mes pieges 
-            let taille = random(80, 210) /**= height du piege du haut */
-            let taille2 = random(80, 210) /**=height du piege du bas  */
+        let birdG = bird.offsetLeft
+        let birdTop = bird.offsetTop
+        let div1G = mouv[0].offsetLeft
+        let div1T = mouv[0].offsetTop
+        let div1H=mouv[0].offsetHeight+25
+        let div2G = mouv[1].offsetLeft
+        let div2T = mouv[1].offsetTop
+        let div2H=mouv[1].offsetHeight+25
+        
+// console.log(birdG);
+// console.log(birdTop);
+// console.log(div1G);
 
-            // ma boucle while supprime les pieges après chaque passage
-            while (fond.firstChild) {
-                fond.removeChild(fond.firstChild)
-            }
-            // ma fonction newpiege créer un couple de pieges avec comme parametre les valeurs aléatoires pour définir la hauteur
-            newpiege(taille, taille2)
-
-            // je remet positionpiege à 0 pour recommencer l'animation à droite
-            positionpiege = 0
-
+        if (birdG + 50 >= div1G &&
+            birdG <= div1G + div1H &&
+            birdTop + 50 >= div1T &&
+            birdTop <= div1T + div1H
+        ){
+            window.location.reload(true)
         }
+
+        if (birdG + 25 >= div2G &&
+            birdG <= div2G + div2H &&
+            birdTop + 25 >= div2T &&
+            birdTop <= div2T + div2H
+        ){
+            window.location.reload(true)
+        }
+
+            // creation du nouveau piege aleatoir
+            if (positionpiege === 900) {
+                // les variables tailles renvoie une valeurs random qui sera les height de mes pieges 
+                let taille = random(80, 210) /**= height du piege du haut */
+                let taille2 = random(80, 210) /**=height du piege du bas  */
+
+                // ma boucle while supprime les pieges après chaque passage
+                while (fond.firstChild) {
+                    fond.removeChild(fond.firstChild)
+                }
+                // ma fonction newpiege créer un couple de pieges avec comme parametre les valeurs aléatoires pour définir la hauteur
+                newpiege(taille, taille2)
+
+                // je remet positionpiege à 0 pour recommencer l'animation à droite
+                positionpiege = 0
+
+            }
 
     }, 20);
 
@@ -178,3 +218,4 @@ function gopartie() {
     newpiege()
 
 }
+
