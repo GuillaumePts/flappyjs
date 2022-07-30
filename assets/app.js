@@ -183,17 +183,17 @@ function gopartie() {
 // console.log(birdTop);
 // console.log(div1G);
 
-        if (birdG + 25 >= div1G &&
+        if (birdG + 50 >= div1G &&
             birdG <= div1G + div1H &&
-            birdTop + 25 >= div1T &&
+            birdTop + 50 >= div1T &&
             birdTop <= div1T + div1H
         ){
             window.location.reload(true)
         }
 
-        if (birdG + 25 >= div2G &&
+        if (birdG + 50 >= div2G &&
             birdG <= div2G + div2H &&
-            birdTop + 25 >= div2T &&
+            birdTop + 50 >= div2T &&
             birdTop <= div2T + div2H
         ){
             window.location.reload(true)
