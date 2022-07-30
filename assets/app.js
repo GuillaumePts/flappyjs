@@ -53,7 +53,7 @@ function newpiege(taille, taille2) {
 
     piegehaut.style.width = '100px'
     piegehaut.style.height = taille + 'px'
-    piegehaut.style.backgroundColor = '#' + color
+    // piegehaut.style.backgroundColor = '#' + color
     piegehaut.style.position = 'absolute'
     piegehaut.style.top = 0
 
@@ -68,7 +68,7 @@ function newpiege(taille, taille2) {
 
     piegebas.style.width = '100px'
     piegebas.style.height = taille2 + 'px'
-    piegebas.style.backgroundColor = '#' + color
+    // piegebas.style.backgroundColor = '#' + color
     piegebas.style.position = 'absolute'
     piegebas.style.bottom = 0
 }
@@ -226,4 +226,3 @@ function gopartie() {
     newpiege()
 
 }
-
