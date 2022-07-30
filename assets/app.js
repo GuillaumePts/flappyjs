@@ -51,7 +51,7 @@ function newpiege(taille, taille2) {
     fond.appendChild(piegehaut)
 
 
-    piegehaut.style.width = '100px'
+    piegehaut.style.width = '200px'
     piegehaut.style.height = taille + 'px'
     // piegehaut.style.backgroundColor = '#' + color
     piegehaut.style.position = 'absolute'
@@ -66,7 +66,7 @@ function newpiege(taille, taille2) {
     fond.appendChild(piegebas)
 
 
-    piegebas.style.width = '100px'
+    piegebas.style.width = '200px'
     piegebas.style.height = taille2 + 'px'
     // piegebas.style.backgroundColor = '#' + color
     piegebas.style.position = 'absolute'
