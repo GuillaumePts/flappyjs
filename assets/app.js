@@ -1,6 +1,6 @@
 const body = document.querySelector('body')
 const fond = document.querySelector('#fond')
-
+const carroussel =document.querySelector('#arriereplan')
 const player= document.querySelector('#bird')
 const root = document.documentElement
 
@@ -86,6 +86,8 @@ window.addEventListener("keydown", function (event) {
     if (event.key == "z") {
         console.log('ça part');
         gopartie()
+        carroussel.classList.add('animcar')
+        
     }
 
 })
