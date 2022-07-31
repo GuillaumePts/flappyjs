@@ -134,12 +134,12 @@ function gopartie() {
     // valeur = représente la chute du bird est donc la position x 
     let valeur = -7
     // la position de mon piege
-    let positionpiege = 0
+    let positionpiege = -200
 
 
     // toutes les 0.020s je fait ce qui y'a dedans 
     setInterval(() => {
-
+console.log(positionpiege);
 
         // ------------------------------------------------------
         /**FIN PARTIE BIRD */
@@ -200,7 +200,7 @@ function gopartie() {
         }
 
             // creation du nouveau piege aleatoir
-            if (positionpiege === 900) {
+            if (positionpiege > 1000) {
                 // les variables tailles renvoie une valeurs random qui sera les height de mes pieges 
                 let taille = random(80, 200) /**= height du piege du haut */
                 let taille2 = random(80, 200) /**=height du piege du bas  */
@@ -213,7 +213,7 @@ function gopartie() {
                 newpiege(taille, taille2)
 
                 // je remet positionpiege à 0 pour recommencer l'animation à droite
-                positionpiege = 0
+                positionpiege = -200
 
             }
 

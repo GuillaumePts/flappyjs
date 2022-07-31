@@ -49,20 +49,22 @@ body{
     position: absolute;
     border-radius: 5px;
     bottom:  var(--position-);
-    box-shadow: 
+    box-shadow: 0px 0px 20px 4px #0000001a,
      inset -3px -3px 9px 0px #0000005e;
    
 }
 
 .mouv{
-
-
+   
+height: 20px;
+width: 200px;
     right: var(--right-);
     background: url(../img/typescript.png) bottom/contain no-repeat;
    background-color: #0073c0;
    box-shadow: 
+   0px 0px 20px 4px #0000001a,
    inset -3px -3px 9px 0px #0000005e;
-
+ 
     
 }
 
