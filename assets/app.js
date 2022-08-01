@@ -5,9 +5,58 @@ const player= document.querySelector('#bird')
 const press=document.querySelector('#press')
 const sombre=document.querySelector('#sombre')
 const root = document.documentElement
-let terminepartie=[1,2]
+let vie=[1,2]
+
+function once(a, b) {
+    var c;
+    return function() {
+      if (a) {
+        c = a.apply(b || this, arguments);
+        a = b = null;
+      }
+      return c;
+    };
+  }
+
+let unefoi= once(function(){
+    
+      
+        vie.pop()
+    
+})
+
+let deuxfoi= once(function(){
+   
+      
+        vie.pop()
+  
+})
+
+let troisfoi= once(function(){
+   
+       
+        vie.pop()
+    
+})
 
 
+
+
+function perdu(){
+   
+    if(vie.length === 2){
+        console.log("console.log");
+        unefoi()
+    }
+    if(vie.length===1){
+        console.log("console.log");
+        deuxfoi()
+    }
+    if(vie.length ===0){
+        console.log("perdu c'est bon");
+        troisfoi()
+    }
+}
 
 // -----------------------------------------------------------------------------------
 // -----------MES FONCTIONS ---------------------------------------------------------
@@ -83,7 +132,7 @@ function newpiege(taille, taille2) {
 
 
 
-// fonction perdu
+
 
 
 
@@ -152,10 +201,7 @@ function gopartie() {
 
     })
 
-    // ------------------------------------------------------
-    /*PARTIE BIRD */
-    // ------------------------------------------------------
-
+   
     // x = position de départ du bird
     let x = 350
     // valeur = représente la chute du bird est donc la position x 
@@ -169,10 +215,6 @@ function gopartie() {
     // toutes les 0.020s je fait ce qui y'a dedans 
     setInterval(() => {
 
-
-        // ------------------------------------------------------
-        /**FIN PARTIE BIRD */
-        // ------------------------------------------------------
 
         // x est la position bottom du bird
         x += valeur
@@ -218,7 +260,25 @@ function gopartie() {
             birdTop <= div1T + div1H
         ){
             // window.location.reload(true)
-            perdu()
+            setInterval(() => {
+                if(vie.length === 2){
+                    console.log("console.log");
+                    unefoi()
+                }
+                   
+            if(vie.length===1){
+                console.log("console.log");
+                deuxfoi()
+            }
+            if(vie.length ===0){
+                console.log("perdu c'est bon");
+                troisfoi()
+            }
+            }, 1000);
+          
+
+            
+           
         }
 
         if (birdG + 50 >= div2G &&
@@ -226,8 +286,26 @@ function gopartie() {
             birdTop + 50 >= div2T &&
             birdTop <= div2T + div2H
         ){
+            console.log(vie.length);
             // window.location.reload(true)
-            perdu()
+            setInterval(() => {
+                if(vie.length === 2){
+                    console.log("console.log");
+                    unefoi()
+                }
+                   
+            if(vie.length===1){
+                console.log("console.log");
+                deuxfoi()
+            }
+            if(vie.length ===0){
+                console.log("perdu c'est bon");
+                troisfoi()
+            }
+            }, 1000);
+          
+
+            
         }
 
         if(positionpiege >400 && positionpiege <420){
