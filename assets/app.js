@@ -2,6 +2,8 @@ const body = document.querySelector('body')
 const fond = document.querySelector('#fond')
 const carroussel =document.querySelector('#arriereplan')
 const player= document.querySelector('#bird')
+const press=document.querySelector('#press')
+const sombre=document.querySelector('#sombre')
 const root = document.documentElement
 
 
@@ -56,6 +58,8 @@ function newpiege(taille, taille2) {
     // piegehaut.style.backgroundColor = '#' + color
     piegehaut.style.position = 'absolute'
     piegehaut.style.top = 0
+    piegehaut.style.borderBottomLeftRadius='20px'
+    piegehaut.style.borderBottomRightRadius='20px'
 
 
 
@@ -71,6 +75,8 @@ function newpiege(taille, taille2) {
     // piegebas.style.backgroundColor = '#' + color
     piegebas.style.position = 'absolute'
     piegebas.style.bottom = 0
+    piegebas.style.borderTopLeftRadius='20px'
+    piegebas.style.borderTopRightRadius='20px'
 }
 
 
@@ -84,9 +90,26 @@ function newpiege(taille, taille2) {
 window.addEventListener("keydown", function (event) {
 
     if (event.key == "z") {
-        console.log('ça part');
+        sombre.remove();
+       press.textContent="3"
+       press.style.fontSize="6rem"
+       setTimeout (()=>{
+        press.textContent="2"
+       },400)
+       setTimeout(()=>{
+        press.textContent="1"
+       },900)
+       setTimeout(()=>{
+        press.textContent="Go!"
+        press.style.fontSize="7rem"
+       },1400)
+       setTimeout(()=>{
+        press.remove();
         gopartie()
         carroussel.classList.add('animcar')
+       },1600)
+       
+       
         
     }
 
@@ -135,11 +158,13 @@ function gopartie() {
     let valeur = -7
     // la position de mon piege
     let positionpiege = -200
+    // score
+    let score =0
 
 
     // toutes les 0.020s je fait ce qui y'a dedans 
     setInterval(() => {
-console.log(positionpiege);
+
 
         // ------------------------------------------------------
         /**FIN PARTIE BIRD */
@@ -199,8 +224,15 @@ console.log(positionpiege);
             window.location.reload(true)
         }
 
+        if(positionpiege >400 && positionpiege <420){
+            score++
+            console.log(score);
+        }
+
             // creation du nouveau piege aleatoir
             if (positionpiege > 1000) {
+                
+              
                 // les variables tailles renvoie une valeurs random qui sera les height de mes pieges 
                 let taille = random(80, 200) /**= height du piege du haut */
                 let taille2 = random(80, 200) /**=height du piege du bas  */
