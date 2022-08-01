@@ -5,6 +5,8 @@ const player= document.querySelector('#bird')
 const press=document.querySelector('#press')
 const sombre=document.querySelector('#sombre')
 const root = document.documentElement
+let terminepartie=[1,2]
+
 
 
 // -----------------------------------------------------------------------------------
@@ -81,6 +83,8 @@ function newpiege(taille, taille2) {
 
 
 
+// fonction perdu
+
 
 
 
@@ -95,19 +99,19 @@ window.addEventListener("keydown", function (event) {
        press.style.fontSize="6rem"
        setTimeout (()=>{
         press.textContent="2"
-       },400)
+       },200)
        setTimeout(()=>{
         press.textContent="1"
-       },900)
+       },600)
        setTimeout(()=>{
         press.textContent="Go!"
         press.style.fontSize="7rem"
-       },1400)
+       },1100)
        setTimeout(()=>{
         press.remove();
         gopartie()
         carroussel.classList.add('animcar')
-       },1600)
+       },1300)
        
        
         
@@ -213,7 +217,8 @@ function gopartie() {
             birdTop + 50 >= div1T &&
             birdTop <= div1T + div1H
         ){
-            window.location.reload(true)
+            // window.location.reload(true)
+            perdu()
         }
 
         if (birdG + 50 >= div2G &&
@@ -221,12 +226,13 @@ function gopartie() {
             birdTop + 50 >= div2T &&
             birdTop <= div2T + div2H
         ){
-            window.location.reload(true)
+            // window.location.reload(true)
+            perdu()
         }
 
         if(positionpiege >400 && positionpiege <420){
             score++
-            console.log(score);
+            document.querySelector('#score').textContent=' score : ' + score
         }
 
             // creation du nouveau piege aleatoir
